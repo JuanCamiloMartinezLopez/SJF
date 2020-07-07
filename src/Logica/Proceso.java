@@ -10,7 +10,11 @@ public class Proceso {
     int tespera;
     int id;
     Proceso sig;
-    Proceso(){
+    boolean listo;
+    int tbloqueo;
+    int tesperaRetorno;
+    
+    public Proceso(){
     	sig = null;
     }
 }
