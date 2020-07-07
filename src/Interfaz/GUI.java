@@ -264,6 +264,7 @@ public class GUI {
 				btnBloquear.setVisible(true);
 				lblNewLabel_1.setVisible(true);
 				Tiempo.setVisible(true);
+				gp.ordenar();
 				gp.Gestion();
 				clearGanttItems();
 				llenarTablaGestionada();

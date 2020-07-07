@@ -116,7 +116,7 @@ public class GestionProcesos {
 	}
 	
 	public ArrayList<String[]> Gestion() {
-		ordenar();
+		//ordenar();
 		ColaProcesos Ordenamiento = new ColaProcesos();
 		int numProcesos=this.procesos.getProcesos();
 		int cuenta = 0;
