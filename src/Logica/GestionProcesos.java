@@ -29,9 +29,10 @@ public class GestionProcesos {
 	public int getrafagaTotal() {
 		return this.procesos.getrafagaTotal();
 	}
+	
 	public void ordenar() {
-		Proceso raiz=this.procesos.getRaiz();
-		int numPorcesos=this.procesos.getProcesos();
+		Proceso raiz=procesos.getRaiz();
+		int numPorcesos=procesos.getProcesos();
 		Proceso aux;
 		while (true) {
 			aux = raiz.sig;
@@ -108,13 +109,14 @@ public class GestionProcesos {
 	public void procesobloqueado(int tbloqueo) {
 		System.out.println("Bloqueado");
 		Proceso bloqueadoProceso=procesos.atender();
-		bloqueadoProceso.rafaga-=tbloqueo;
+		bloqueadoProceso.rafaga-=(tbloqueo-bloqueadoProceso.tcomienzo);
 		bloqueadoProceso.tbloqueo=tbloqueo;
 		bloqueadoProceso.tesperaRetorno=3;
 		bloqueados.insertar(bloqueadoProceso);
 	}
 	
 	public ArrayList<String[]> Gestion() {
+		ordenar();
 		ColaProcesos Ordenamiento = new ColaProcesos();
 		int numProcesos=this.procesos.getProcesos();
 		int cuenta = 0;

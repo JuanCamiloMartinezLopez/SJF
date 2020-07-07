@@ -232,9 +232,7 @@ public class GUI {
 							public void run() {
 								if(t==trafaga) {
 								System.out.println(Pbloqueado);	
-									if(!Pbloqueado) {
-										gp.atenderProceso();
-									}
+									gp.atenderProceso();
 									timer.cancel();
 								}
 								Pbloqueado=gp.desbloquearProceso(t);
@@ -266,7 +264,7 @@ public class GUI {
 				btnBloquear.setVisible(true);
 				lblNewLabel_1.setVisible(true);
 				Tiempo.setVisible(true);
-				gp.ordenar();
+				gp.Gestion();
 				clearGanttItems();
 				llenarTablaGestionada();
 				ConstruirGantt();
@@ -312,9 +310,10 @@ public class GUI {
 	}
 	
 	public void llenarTablaGestionada() {
+		System.out.println("Pbloqueado "+Pbloqueado);
 		table.removeAll();
 		this.alldata.clear();
-		if(Pbloqueado) {
+		if(!Pbloqueado) {
 			this.alldata=gp.Gestion();
 		}else {
 			this.alldata=gp.infoProcesos();
